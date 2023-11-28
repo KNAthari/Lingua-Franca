@@ -8,7 +8,7 @@ gem "rails", "~> 7.1.1"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
-# Use sqlite3 as the database for Active Record
+# postgresql
 gem "pg"
 
 # Use the Puma web server [https://github.com/puma/puma]
@@ -25,6 +25,9 @@ gem "stimulus-rails"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
+
+# Bootstrap
+gem 'bootstrap', '~> 5.3.2'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
