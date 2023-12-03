@@ -1,0 +1,8 @@
+<% if @language.present? %>
+    <% @language.each do |language| %>
+        <li><%= link_to language.name, language_path(language) %> </li>
+    <% end %>
+    <% else %>
+        <p>No languages found.</p>
+<% end %>
+
