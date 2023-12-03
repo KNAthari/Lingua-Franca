@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   root "home#show"
 
-  resources :language do
+  resources :languages do
+    resources :lesson
   end
 end
