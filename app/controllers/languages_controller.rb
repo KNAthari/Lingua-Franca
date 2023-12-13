@@ -28,7 +28,7 @@ class LanguagesController < ApplicationController
 
   private
     def set_language
-      @languages = Language.find(params[:id])
+      @languages = Language.find(params[:id]) 
     end
     def languages_params
       params.require(:language).permit(:name, :description)

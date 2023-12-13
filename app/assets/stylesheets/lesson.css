@@ -1,0 +1,12 @@
+.lesson-card {
+    border: 1px solid #000;
+    transition: transform 0.3s;
+    justify-content: center;
+  }
+
+.lesson-card:hover {
+    transform: scale(1.1);
+  }
+
+
+

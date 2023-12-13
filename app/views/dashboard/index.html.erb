@@ -1,0 +1,11 @@
+<h1>Welcome to Your Dashboard, <%= current_user.first_name %>!</h1>
+
+<h2>Your Purchased Lessons:</h2>
+<ul>
+  <% @lessons.each do |lesson| %>
+    <li><%= lesson.title %></li>
+  <% end %>
+</ul>
+
+<!-- Add more content as needed -->
+

@@ -1,0 +1,28 @@
+<%= form_with model: [@language, @lesson] do |form| %>
+    <div>
+      <%= form.label :title %><br>
+      <%= form.text_field :title %>
+      <% lesson.errors.full_messages_for(:title).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+  
+    <div>
+      <%= form.label :body %><br>
+      <%= form.text_area :body %><br>
+      <% lesson.errors.full_messages_for(:body).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+
+    <div class="field">
+      <%= form.label :price %>
+      <%= form.text_field :price %>
+    <% lesson.errors.full_messages_for(:price).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+    </div>
+  
+    <div>
+      <%= form.submit %>
+<% end %>
