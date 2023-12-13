@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_30_190839) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_13_170858) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,25 +24,32 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_30_190839) do
   create_table "lessons", force: :cascade do |t|
     t.string "title"
     t.string "body"
-    t.bigint "users_id"
-    t.bigint "languages_id", null: false
+    t.bigint "language_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["languages_id"], name: "index_lessons_on_languages_id"
-    t.index ["users_id"], name: "index_lessons_on_users_id"
+    t.decimal "price"
+    t.index ["language_id"], name: "index_lessons_on_language_id"
   end
 
   create_table "roles", force: :cascade do |t|
-    t.string "role_title"
+    t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "user_lessons", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "lesson_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["lesson_id"], name: "index_user_lessons_on_lesson_id"
+    t.index ["user_id"], name: "index_user_lessons_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "first_name", null: false
     t.string "last_name", null: false
     t.string "user_name", null: false
-    t.bigint "roles_id", null: false
     t.bigint "languages_id"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -51,14 +58,16 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_30_190839) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "role_id", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["languages_id"], name: "index_users_on_languages_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["roles_id"], name: "index_users_on_roles_id"
+    t.index ["role_id"], name: "index_users_on_role_id"
   end
 
-  add_foreign_key "lessons", "languages", column: "languages_id"
-  add_foreign_key "lessons", "users", column: "users_id"
+  add_foreign_key "lessons", "languages"
+  add_foreign_key "user_lessons", "lessons"
+  add_foreign_key "user_lessons", "users"
   add_foreign_key "users", "languages", column: "languages_id"
-  add_foreign_key "users", "roles", column: "roles_id"
+  add_foreign_key "users", "roles"
 end

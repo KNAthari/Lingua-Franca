@@ -1,0 +1,19 @@
+.hero-section {
+    /* background-image: url('path/to/your/image.jpg'); */
+    background-size: cover; 
+    background-position: center;
+    /* color: #fff; */
+    text-align: center;
+    padding: 100px 0;
+  }
+  
+  .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  a{
+    color: white;
+    text-decoration: none;
+  }
+  

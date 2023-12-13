@@ -1,2 +1,17 @@
-<h1>Hello Rails!</h1>
+<section class="hero-section">
+  <div class="hero-content">
+    <h1 class="text-center"><%= @welcome_message %></h1>
+    <p>Your platform for language learning and cultural exchange.</p>
+  </div>
+  <% unless user_signed_in? %>
+  <div class="container justify-content-center mt-1">
+    <button type="button" class="btn btn-secondary btn-block">
+    <span class="signtext">
+    <%= link_to "Sign-in", new_user_session_path %>
+    </span>
+    </button>
+  </div>
+  <% end %>
+</section>
+
 

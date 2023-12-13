@@ -1,0 +1,32 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+.dashboard {
+    display: flex;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+main {
+    width: 100%;
+}
+
+.lesson {
+    background-color: #f8f8f8;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+/* Add more styling as needed */

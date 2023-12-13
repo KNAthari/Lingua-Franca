@@ -1,0 +1,32 @@
+<div class="col-md-6 container mt-4">
+  <h1>Lessons</h1>
+
+    
+    <div class="col-md-6">
+      <p>Our instructors have written <%= Lesson.count %> Lessons!</p>
+      <ul>
+       <li><%= link_to "New Lesson", new_language_lesson_path, class: "nav-link" %></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8 mt-5 mx-auto">
+      <ul class="list-group">
+        <% @lessons.each do |lesson| %>
+          <li class="list-group-item lesson-card mb-3">
+            <%= link_to lesson.title, language_lesson_path(lesson.language, lesson), class: "card-link" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
