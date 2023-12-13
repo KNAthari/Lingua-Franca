@@ -3,7 +3,7 @@
 <h2>Your Purchased Lessons:</h2>
 <ul>
   <% @lessons.each do |lesson| %>
-    <li><%= lesson.title %></li>
+    <li><%= link_to lesson.title, language_lesson_path(lesson.language, lesson) %></li>
   <% end %>
 </ul>
 

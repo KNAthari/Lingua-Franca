@@ -9,10 +9,14 @@
 
   <div class="row mt-4">
     <div class="col-md-6 mb-3">
-      <div class="btn-group">
-        <%= link_to "Edit", edit_language_lesson_path(@language, @lesson), class: "btn btn-warning" %>
-        <%= link_to "Delete", language_lesson_path(@language, @lesson), class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-      </div>
+    <% unless user_signed_in? %>
+      <% if current_user.teacher? %>
+        <div class="btn-group">
+          <%= link_to "Edit", edit_language_lesson_path(@language, @lesson), class: "btn btn-warning" %>
+          <%= link_to "Delete", language_lesson_path(@language, @lesson), class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+        </div>
+      <% end %>
+    <% end %>
     </div>
   </div>
 

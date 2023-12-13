@@ -4,9 +4,13 @@
     
     <div class="col-md-6">
       <p>Our instructors have written <%= Lesson.count %> Lessons!</p>
-      <ul>
-       <li><%= link_to "New Lesson", new_language_lesson_path, class: "nav-link" %></li>
-      </ul>
+      <% unless user_signed_in? %>
+        <% if current_user.teacher? %>
+          <ul>
+            <li class="new-lesson"><%= link_to "New Lesson", new_language_lesson_path, class: "nav-link" %></li>
+          </ul>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>
