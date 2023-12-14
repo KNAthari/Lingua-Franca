@@ -17,14 +17,6 @@
             <%= link_to "New Language", new_language_path, class: "nav-link text-white" %>
           </li>
           <% end %>
-          <% if current_user.teacher? %>
-              <% languages_for_header.each do |language| %>
-                <li class="new-lesson">
-                  <%= link_to "New Lesson", new_language_lesson_path(language), class: "nav-link text-white" %>
-                </li>
-                <% break %>
-              <% end %>
-          <% end %>
           <li class="nav-item dropdown">
         
             <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -35,6 +27,13 @@
                 <%= link_to language.name, language_lessons_path(language), class: "dropdown-item" %>
               <% end %>
             </div>
+          <% if current_user.teacher? %>
+            <% languages_for_header.limit(1).each do |language| %>
+              <li class="new-lesson">
+                <%= link_to "New Lesson", new_language_lesson_path(language), class: "nav-link text-white" %>
+              </li>
+            <% end %>
+          <% end %>
           </li>
           <li class="ms-auto">
             <%= button_to "Sign Out", sign_out_path, method: :delete, class:"nav-link text-white" %>
