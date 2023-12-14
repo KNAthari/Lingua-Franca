@@ -15,7 +15,7 @@ class User < ApplicationRecord
   end
 
   def teacher?
-    title == 'teacher'
+    role_id == 2
   end
 
   def admin?
