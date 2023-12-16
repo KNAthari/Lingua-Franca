@@ -11,7 +11,7 @@ class User < ApplicationRecord
   validates :first_name, :last_name, :user_name, :role, presence: true
 
   def student?
-    title == 'student'
+    role_id == 1
   end
 
   def teacher?
@@ -19,7 +19,7 @@ class User < ApplicationRecord
   end
 
   def admin?
-    title == 'admin'
+    role_id == 3
   end
 
 
