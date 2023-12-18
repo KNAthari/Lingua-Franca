@@ -17,3 +17,6 @@ test:
 production:
   <<: *default
   database: lingua_franca_production
+  username: admin
+  password: <%= ENV["MYAPP_DATABASE_PASSWORD"] %>
+
