@@ -16,7 +16,7 @@ class LessonsController < ApplicationController
   
     def create
       @lesson = @language.lessons.build(lesson_params)
-      @lesson.user = current_user
+      
 
 
       if @lesson.save
